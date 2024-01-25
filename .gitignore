@@ -9,3 +9,9 @@ citerus/__pycache__/__init__.cpython-311.pyc
 citerus/__pycache__/citerus.cpython-311.pyc
 citerus/__pycache__/citeruslogo.cpython-311.pyc
 citerus/__pycache__/cryptodbreader.cpython-311.pyc
+dist/citerus-0.1.0.tar.gz
+dist/citerus-0.1.0-py3-none-any.whl
+build/lib/citerus/cryptodbreader.py
+build/lib/citerus/citeruslogo.py
+build/lib/citerus/citerus.py
+build/lib/citerus/__init__.py

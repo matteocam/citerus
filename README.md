@@ -42,7 +42,7 @@ Suppose you want to find relevant citations for _round complexity in MPC_, just:
 Citerus will automatically copy in your clipboard the relevant LaTeX code to cite them.
 That's it!
 
-![Screenshot of citerus in action]([http://url/to/img.png](https://drive.google.com/file/d/1hNcfJLHTg_axQmjc4V1GyQ4ED7TCFdMs/view?usp=sharing))
+![Screenshot of citerus in action](https://drive.google.com/file/d/1hNcfJLHTg_axQmjc4V1GyQ4ED7TCFdMs/view?usp=sharing)
 
 To see more options and examples type `citerus --help`.
 

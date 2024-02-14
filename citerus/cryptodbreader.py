@@ -36,8 +36,10 @@ def cleanup():
 def search_bib(db, args):
     titles = args.t
     authors = args.a
+    venues = args.w
 
     fix_case = lambda x: x.lower() if args.case_insensitive else x
+    get_venue_label = lambda x: x["tag"].split(":")[0]
 
     titles = [fix_case(t) for t in titles]
     authors = [fix_case(a) for a in authors]
@@ -48,8 +50,9 @@ def search_bib(db, args):
     t_lambda = lambda o: aggr_t(t in fix_case(o["title"]) for t in titles) 
     a_lambda = lambda o: aggr_a(a in fix_case(o.get("author", "")) for a in authors)
     y_lambda = lambda o: args.y in o.get("year", "")
+    w_lambda = lambda o: any(v == get_venue_label(o) for v in venues) if len(venues) > 0 else True
 
-    is_match = lambda o: t_lambda(o) and a_lambda(o) and y_lambda(o) # search title pattern and author pattern and year
+    is_match = lambda o: t_lambda(o) and a_lambda(o) and y_lambda(o) and w_lambda(o) # search title pattern and author pattern and year and where
 
     #is_match = lambda o: t in o["title"].lower() and a in o.get("author", "").lower()
     return filter(is_match, db)

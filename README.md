@@ -1,29 +1,28 @@
 # citerus
 A command-line tool to easily find cryptographic citations to use with LaTeX.
 
-                                   .-.
-                                  /  .\
-                                .' .  .'.
-                             .-'. .    . '-._
-                           .' ..    . . . .  '.
-                          /. .    .        .  .\
-                         / .  . .     . .. . .  \
-                        |. .  .      .. . . ...  |
-                        / . .     .       .  .  .\
-                       | . . ._______ .. . .  . ..|
-                       |   . /       \ .   . .  . |
-                       |. . { CITERUS }. ..   . ..|
-                       |.  . \_______/.     .   ..|
-                       | .  .          . . . . .  |
-                       |. .     .    .. .   .   ..|
-                        \  . .        .  . .  . . /
-                        |  .  .      .  .  . . . |
-                         \. .     .  . .  .. . .'
-                          \  ..      .. .   . /
-                           ':_ .  .  . ... _.'
-                              '-.. . .  .-'
-                                  '._..'
-
+                           .-.
+                          /  .\
+                        .' .  .'.
+                     .-'. .    . '-._
+                   .' ..    . . . .  '.
+                  /. .    .        .  .\
+                 / .  . .     . .. . .  \
+                |. .  .      .. . . ...  |
+                / . .     .       .  .  .\
+               | . . ._______ .. . .  . ..|
+               |   . /       \ .   . .  . |
+               |. . { CITERUS }. ..   . ..|
+               |.  . \_______/.     .   ..|
+               | .  .          . . . . .  |
+               |. .     .    .. .   .   ..|
+                \  . .        .  . .  . . /
+                |  .  .      .  .  . . . |
+                 \. .     .  . .  .. . .'
+                  \  ..      .. .   . /
+                   ':_ .  .  . ... _.'
+                      '-.. . .  .-'
+                          '._..'
 
 
 # What does Citerus do?
@@ -52,7 +51,7 @@ To see more options and examples type `citerus --help`.
 
 If you don't have pip, install it first with `python -m ensurepip --upgrade`.
 
-NB: currently citerus has been tested on macOS and GNU/Linux only. Feel free to try it on Windows too though.
+Citerus has been tested on macOS, GNU/Linux and Windows. Windows users may need to make sure that the installed citerus script is in PATH following some of the tips [here](https://superuser.com/questions/1372793/the-script-is-installed-in-directory-which-is-not-path).
 
 
 # Ack

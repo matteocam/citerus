@@ -33,6 +33,13 @@ def cleanup():
         #print("Error: %s - %s." % (e.filename, e.strerror))
         pass # Silent (redundant cleanups do not need to be announced)
 
+def cleandb():
+    try:
+        os.remove(path_citme_db)
+    except FileNotFoundError as e:
+        #print("Error: %s - %s." % (e.filename, e.strerror))
+        pass # Silent (redundant cleanups do not need to be announced)
+
 def search_bib(db, args):
     titles = args.t
     authors = args.a

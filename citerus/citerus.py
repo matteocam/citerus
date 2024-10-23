@@ -180,6 +180,7 @@ def argparse_setup():
     group_adm = parser.add_argument_group('Other arguments')
     group_adm.add_argument('--cleanup', action='store_true', dest='cleanup', help="Cleanup DB files (reset cryptobib and index)")
     group_adm.add_argument('--cleandb', action='store_true', dest='cleandb', help="Reset DB index")
+    group_adm.add_argument('--updatedb', action='store_true', dest='updatedb', help="Update cryptobib")
     group_adm.add_argument('--logo', action='store_true', dest='logo_help', help="Print logo together with help")
 
 
@@ -204,6 +205,12 @@ def main():
     if args.cleandb:
         cryptodbreader.cleandb()
         sys.exit(0)
+
+    if args.updatedb:
+        cryptodbreader.update_cryptobib()
+        cryptodbreader.cleandb()
+        sys.exit(0)
+
     if args.logo_help:
         citeruslogo.print_logo()
         print()

@@ -53,6 +53,9 @@ If you don't have pip, install it first with `python -m ensurepip --upgrade`.
 
 Citerus has been tested on macOS, GNU/Linux and Windows. Windows users may need to make sure that the installed citerus script is in PATH following some of the tips [here](https://superuser.com/questions/1372793/the-script-is-installed-in-directory-which-is-not-path).
 
+## Distribution packages
+
+- Arch (AUR): [python-citerus-git](https://aur.archlinux.org/packages/python-citerus-git)
 
 # Ack
 Thanks to Mahak P. for coming up with the specific form of the citerus name.

@@ -14,6 +14,8 @@ from . import cryptodbreader
 
 from . import citeruslogo
 
+from . import venues
+
 
 # MAX number of rows visualized
 CAP_RESULTS = 70
@@ -158,7 +160,7 @@ def argparse_setup():
     example = "Examples:\n  citerus mpc round\t\t# search the string \"mpc\" in title\n  citerus SNARK -a fiore\t# search the string \"SNARK\" in titles and \"fiore\" in authors\n  citerus -a groth -y 2016\t# search for Groth16"
     description_msg = "  Citerus retrieves your citations.\n  It searches for citations in cryptobib and automatically copies the LaTeX handle into your clipboard.\n\n%s" % example
     usage_msg = 'citerus [OPTIONS] [TITLE_PATT ...] [-a AUTHOR_PATT [AUTHOR_PATT ...]]'
-    parser = argparse.ArgumentParser(prog=PROG_NAME, exit_on_error=False, formatter_class=argparse.RawDescriptionHelpFormatter,
+    parser = argparse.ArgumentParser(prog=PROG_NAME, exit_on_error=True, formatter_class=argparse.RawDescriptionHelpFormatter,
                                      description=description_msg, usage = usage_msg)
 
 
@@ -169,6 +171,8 @@ def argparse_setup():
     group_std.add_argument('-a', action='extend', nargs = '+', default=[], metavar="AUTHOR_PATT", help = "Patterns to search in author field")
 
     group_std.add_argument('-y', action='store', default='', dest='y', metavar='YEAR', help='Restrict search to YEAR')
+
+    group_std.add_argument('-w', action='extend', nargs='+', default=[], dest='w', metavar='WHERE', type=str.upper, choices=venues.venue_labels, help='Restrict search to WHERE (see all the possibilities with --list-venues)')
 
     group_std.add_argument('-s', action='store_false', dest='case_insensitive',  help="Case-sensitive search (default: case insensitive)")
 
@@ -182,6 +186,7 @@ def argparse_setup():
     group_adm.add_argument('--cleandb', action='store_true', dest='cleandb', help="Reset DB index")
     group_adm.add_argument('--updatedb', action='store_true', dest='updatedb', help="Update cryptobib")
     group_adm.add_argument('--logo', action='store_true', dest='logo_help', help="Print logo together with help")
+    group_adm.add_argument('--list-venues', action='store_true', dest='list_venues', help='Print a list of venue labels')
 
 
     return parser
@@ -215,6 +220,10 @@ def main():
         citeruslogo.print_logo()
         print()
         parser.print_help()
+        sys.exit(0)
+
+    if args.list_venues:
+        venues.print_venues()
         sys.exit(0)
 
 

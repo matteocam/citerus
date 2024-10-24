@@ -33,6 +33,13 @@ def cleanup():
         #print("Error: %s - %s." % (e.filename, e.strerror))
         pass # Silent (redundant cleanups do not need to be announced)
 
+def cleandb():
+    try:
+        os.remove(path_citme_db)
+    except FileNotFoundError as e:
+        #print("Error: %s - %s." % (e.filename, e.strerror))
+        pass # Silent (redundant cleanups do not need to be announced)
+
 def search_bib(db, args):
     titles = args.t
     authors = args.a
@@ -99,6 +106,18 @@ def ensure_cryptodb_exists(file_path):
     git.Repo.clone_from('https://github.com/cryptobib/export.git', CRYPTOBIB_ROOT, branch='master', progress=CloneProgress())
     print()
 
+def update_cryptobib():
+    print('Pulling cryptobib (this may take a few seconds)...')
+    try:
+        repo = git.Repo(CRYPTOBIB_ROOT)
+    except (git.InvalidGitRepositoryError, git.NoSuchPathError) as e:
+        print("Error: %s - %s." % (e.filename, e.strerror))
+        print("Run `citerus --cleanup`")
+        sys.exit(1)
+    
+    repo.remote().pull(progress=CloneProgress())
+
+    print()
 
 def parse_cryptodb(file_path):
     citeruslogo.print_logo()

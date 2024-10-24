@@ -59,3 +59,4 @@ Citerus has been tested on macOS, GNU/Linux and Windows. Windows users may need 
 
 # Ack
 Thanks to Mahak P. for coming up with the specific form of the citerus name.
+Edoardo Signorini has contributed to several improvements for citerus.
